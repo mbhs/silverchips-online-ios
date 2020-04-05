@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,10 @@
 		34B5D5B2243850E000F1997A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B5D5B0243850E000F1997A /* LaunchScreen.storyboard */; };
 		34B5D5BD243850E000F1997A /* Silverchips_OnlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5D5BC243850E000F1997A /* Silverchips_OnlineTests.swift */; };
 		34B5D5C8243850E000F1997A /* Silverchips_OnlineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5D5C7243850E000F1997A /* Silverchips_OnlineUITests.swift */; };
+		34B5D5D72438510200F1997A /* SCOAPIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 34B5D5D62438510200F1997A /* SCOAPIClient */; };
+		34B5D5D9243852A800F1997A /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5D5D8243852A800F1997A /* ContentTableViewController.swift */; };
+		34B5D5DE243853B600F1997A /* ContentListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5D5DD243853B600F1997A /* ContentListManager.swift */; };
+		34B5D5E0243853F600F1997A /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5D5DF243853F600F1997A /* ContentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,9 @@
 		34B5D5C3243850E000F1997A /* Silverchips OnlineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Silverchips OnlineUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B5D5C7243850E000F1997A /* Silverchips_OnlineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Silverchips_OnlineUITests.swift; sourceTree = "<group>"; };
 		34B5D5C9243850E000F1997A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34B5D5D8243852A800F1997A /* ContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewController.swift; sourceTree = "<group>"; };
+		34B5D5DD243853B600F1997A /* ContentListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListManager.swift; sourceTree = "<group>"; };
+		34B5D5DF243853F600F1997A /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B5D5D72438510200F1997A /* SCOAPIClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,9 +107,11 @@
 		34B5D5A4243850DD00F1997A /* Silverchips Online */ = {
 			isa = PBXGroup;
 			children = (
+				34B5D5DC2438536400F1997A /* Models */,
+				34B5D5DB2438535800F1997A /* Views */,
+				34B5D5DA243852BA00F1997A /* View Controllers */,
 				34B5D5A5243850DD00F1997A /* AppDelegate.swift */,
 				34B5D5A7243850DD00F1997A /* SceneDelegate.swift */,
-				34B5D5A9243850DD00F1997A /* ViewController.swift */,
 				34B5D5AB243850DD00F1997A /* Main.storyboard */,
 				34B5D5AE243850E000F1997A /* Assets.xcassets */,
 				34B5D5B0243850E000F1997A /* LaunchScreen.storyboard */,
@@ -128,6 +138,31 @@
 			path = "Silverchips OnlineUITests";
 			sourceTree = "<group>";
 		};
+		34B5D5DA243852BA00F1997A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				34B5D5A9243850DD00F1997A /* ViewController.swift */,
+				34B5D5D8243852A800F1997A /* ContentTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		34B5D5DB2438535800F1997A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34B5D5DF243853F600F1997A /* ContentTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34B5D5DC2438536400F1997A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				34B5D5DD243853B600F1997A /* ContentListManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +179,9 @@
 			dependencies = (
 			);
 			name = "Silverchips Online";
+			packageProductDependencies = (
+				34B5D5D62438510200F1997A /* SCOAPIClient */,
+			);
 			productName = "Silverchips Online";
 			productReference = 34B5D5A2243850DD00F1997A /* Silverchips Online.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +254,9 @@
 				Base,
 			);
 			mainGroup = 34B5D599243850DD00F1997A;
+			packageReferences = (
+				34B5D5D52438510200F1997A /* XCRemoteSwiftPackageReference "sco-swift-client-lib" */,
+			);
 			productRefGroup = 34B5D5A3243850DD00F1997A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,8 +301,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				34B5D5AA243850DD00F1997A /* ViewController.swift in Sources */,
+				34B5D5DE243853B600F1997A /* ContentListManager.swift in Sources */,
 				34B5D5A6243850DD00F1997A /* AppDelegate.swift in Sources */,
+				34B5D5D9243852A800F1997A /* ContentTableViewController.swift in Sources */,
 				34B5D5A8243850DD00F1997A /* SceneDelegate.swift in Sources */,
+				34B5D5E0243853F600F1997A /* ContentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +634,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		34B5D5D52438510200F1997A /* XCRemoteSwiftPackageReference "sco-swift-client-lib" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mbhs/sco-swift-client-lib.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		34B5D5D62438510200F1997A /* SCOAPIClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34B5D5D52438510200F1997A /* XCRemoteSwiftPackageReference "sco-swift-client-lib" */;
+			productName = SCOAPIClient;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 34B5D59A243850DD00F1997A /* Project object */;
 }
