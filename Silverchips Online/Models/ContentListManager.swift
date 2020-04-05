@@ -13,6 +13,7 @@ protocol ContentListDelegate: AnyObject {
     func didFailWithError(error: Error)
     func loaded()
     func noMoreContent()
+    func loadContent()
 }
 
 class ContentListManager {
@@ -22,6 +23,7 @@ class ContentListManager {
     var previousContent: String?
     var totalResults: Int = 0
     private var loadedFirstTime = false
+    var content: Content?
     
     init() {
         loadLatestContent()
@@ -67,6 +69,10 @@ class ContentListManager {
         } else if loadedFirstTime {
             self.delegate?.noMoreContent()
         }
-            
+    }
+    
+    func selectContent(index: Int) {
+        content = contentList[index]
+        self.delegate?.loadContent()
     }
 }

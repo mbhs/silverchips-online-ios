@@ -16,6 +16,7 @@ class ContentTableViewController: UITableViewController {
 
         contentListManager = ContentListManager()
         contentListManager?.delegate = self
+        showSpinner(onView: self.view)
     }
 
     // MARK: - Table view data source
@@ -39,9 +40,34 @@ class ContentTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        contentListManager?.selectContent(index: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case K.Segues.contentListToContent:
+            guard let viewController = segue.destination as? ContentViewController else {
+                fatalError("Segue sent to unexpected view controller")
+            }
+            
+            if let content = contentListManager?.content {
+                viewController.contentManager = ContentManager(content: content)
+            }
+            
+            
+        default:
+            fatalError("Unknown segue")
+        }
+    }
 }
 
 extension ContentTableViewController: ContentListDelegate {
+    func loadContent() {
+        performSegue(withIdentifier: K.Segues.contentListToContent, sender: self)
+    }
+    
     func didFailWithError(error: Error) {
         dump(error)
     }
@@ -49,6 +75,7 @@ extension ContentTableViewController: ContentListDelegate {
     func loaded() {
         print("LOADED CONTENT \(contentListManager!.contentList[0].title)")
         tableView.reloadData()
+        removeSpinner()
     }
     
     func noMoreContent() {
